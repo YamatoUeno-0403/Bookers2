@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  </head>
+
+  <body>
+        <% if user_signed_in? %>
+      <li>
+        <%= link_to "Bookers", root_path%>
+      </li>
+      <li>
+        <i class="fas fa-home"></i><%= link_to "Home", "#"%>
+      </li>
+      <li>
+        <i class="fas fa-users"></i><%= link_to "Users", destroy_user_session_path, method: :delete %>
+      </li>
+      <li>
+        <i class="fas fa-book-open"></i><%= link_to "Books", destroy_user_session_path, method: :delete %>
+      </li>
+      <li>
+        <i class="fas fa-sign-out-alt"></i><%= link_to "logout", destroy_user_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "新規登録", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_user_session_path %>
+      </li>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
