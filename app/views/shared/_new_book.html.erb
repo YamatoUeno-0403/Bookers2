@@ -1,0 +1,36 @@
+<div class="col-lg-3">
+     <h1>User Info</h1>
+        <table class="table" >
+            <tbody>
+
+                <tr>
+                    <th scope="col">name</th>
+                    <th scope="col">name</th>
+
+                </tr>
+                <tr>
+                     <th scope="col">Introduction</th>
+                     <th scope="col">Introduction</th>
+                </tr>
+            </tbody>
+        </table>
+            <button type="button" class="btn btn-outline-secondary  btn-block"><i class="fas fa-user-cog"></i></button>
+                   
+        <h1>New Book</h1>
+            <div class="form_with">
+                <%= form_with model:@book, local:true do |f| %>
+                   <div class="field">
+                     <p>Title</p>
+                     <%= f.text_field :title %>
+                   </div>   
+
+          
+                    <div class="field">
+                       <p>Opinion</p>
+                       <%= f.text_area :body %>
+                    </div>
+                    <button type="button" class="btn btn-success">Create Book</button>
+         
+                <% end %>
+            </div>
+</div>

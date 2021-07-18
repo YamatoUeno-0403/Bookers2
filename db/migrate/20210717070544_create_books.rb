@@ -4,6 +4,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :image_id
       t.text :title
       t.text :body
+      t.text :name
 
       t.timestamps
     end
