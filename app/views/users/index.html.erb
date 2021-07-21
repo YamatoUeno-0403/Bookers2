@@ -14,10 +14,10 @@
                              <th colspan="3"></th>
                          </tr>
                     </thead>
-                <% @user.each do |user| %>
+                <% @users.each do |user| %>
                     <tbody>
                           <tr>
-                             <td><%= user.name %></td>
+                             <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></td>
                              <td><%= user.name %></td>
                              <td><%= link_to "Show", user_path(user.id) %></td>
                           </tr>

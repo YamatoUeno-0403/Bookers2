@@ -1,16 +1,33 @@
 class UsersController < ApplicationController
   def show
-      @user = User.find(params[:id])
+      @user = User.all
       @books = Book.all
   end
   def index
     @users = User.all
+    @book = Book.new
+  end
+  def new
     @user = User.new
   end
   
+def create
+    @book = Book.new(book_params)
+    @book.user_id= current_user.id
+  if @book.save
+    flash[:success] = "Book was successfully created."
+      redirect_to book_path(@book.id)
+  else
+    @books = Book.all
+    render 'index'
+  end
+end
+    
   def edit
     @user = User.find(params[:id])
   end
+  
+
   
   def update
     @user = User.find(params[:id])
@@ -18,9 +35,16 @@ class UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
   
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] ="Book was successfully destroyed."
+    redirect_to root_path
+  end
+  
     private
 
-  def user_params
-    params.require(:user).permit(:title, :opinion)
+  def book_params
+    params.require(:book).permit(:title, :body)
   end
 end

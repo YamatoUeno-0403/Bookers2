@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_17_090046) do
+ActiveRecord::Schema.define(version: 2021_07_20_123502) do
 
   create_table "books", force: :cascade do |t|
     t.string "image_id"
     t.text "title"
-    t.text "opinion"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_id"
   end
 
   create_table "microposts", force: :cascade do |t|
