@@ -1,1 +1,19 @@
+<div class="plete">
+<div class="top-plete">
 <h1>welcome to <i class="fas fa-book fa-lg"></i><strong>Bookers!!</strong></h1>
+</div>
+<div class="bottom-plete">
+<p>In <i class="fas fa-book fa-lg"><strong>Bookers,</strong></i></p>
+<p>you can share and exchange your opinions , inpressions , and emotions</p>
+<p>about various books!</p>
+</div>
+<div class="d-grid gap-2 col-6 mx-auto">
+  <% if user_signed_in? %>
+  <div><%= link_to users_path, class:"btn btn-info" do %>Log in<% end %></div>
+  <div><%= link_to users_path, class:"btn btn-success" do %>Sign up<% end %></div>
+   <% else %>
+  <div><%= link_to new_user_session_path, class:"btn btn-info" do %>Log in<% end %></div>
+  <div><%= link_to new_user_registration_path, class:"btn btn-success" do %>Sign up<% end %></div>
+  <% end %>
+</div>
+</div>

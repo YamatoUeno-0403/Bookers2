@@ -6,8 +6,8 @@
   <h2>User info</h2>
   <%= form_with model:@user, local:true do |f| %>
 <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Name</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder= >
+  <label for="exampleFormControlInput1" class="form-label">name</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="current_user.name">
 </div>
 <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
 <div class="mb-3">
@@ -17,6 +17,7 @@
 <% end %>
 </div>
 </div>
+<div><%= link_to user_path(current_user), class:"btn btn-secondary" do %>Secondary<% end %></div>
 
     
 </div>
