@@ -1,5 +1,11 @@
 @import "bootstrap";
 
+.navbar-brand{
+    padding-left: 150px;
+}
+.navbar-nav{
+    padding-right: 150px;
+}
 footer{
     margin-top: 20px;
     text-align: center;
@@ -27,4 +33,21 @@ footer{
     width: 60%;
     justify-content: center;
     margin-bottom: 15px;
+}
+
+
+/*----------edit-------------*/
+
+.col-lg-5{
+    margin: 0 auto;
+}
+
+.btn-secondary{
+    width: 10em;
+}
+
+
+/*---------new_book---------*/
+.setting{
+    width: 450px;
 }

@@ -44,7 +44,7 @@ end
   
     private
 
-  def book_params
-    params.require(:book).permit(:title, :body)
+  def user_params
+    params.require(:user).permit(:name, :introduction)
   end
 end
