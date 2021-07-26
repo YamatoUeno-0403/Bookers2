@@ -18,33 +18,40 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav4">
           <ul class="navbar-nav">
-             <% if user_signed_in? %>
+          <% if user_signed_in? %>
+          
               <li><%= link_to user_path(current_user), class:"nav-link  active btn-block" do %>
               <i class="fas fa-home">Home</i>
               <% end %></li>
-              <li class="nav-item active">
-                  <a class="nav-link" href="/users"><i class="fas fa-users"></i>Users</a>
-              </li>
-              <li class="nav-item active">
-                  <a class="nav-link" href="books"><i class="fas fa-book-open"></i>Books</a>
-              </li>
+              
+              <li><%= link_to users_path, class:"nav-link  active btn-block" do %>
+              <i class="fas fa-users">Users</i>
+              <% end %></li>
+              
+              <li><%= link_to books_path, class:"nav-link  active btn-block" do %>
+              <i class="fas fa-book-open">Books</i>
+              <% end %></li>
+              
               <li><%= link_to destroy_user_session_path, method: :delete , class:"nav-link  active btn-block" do %>
               <i class="fas fa-sign-out-alt">logout</i>
               <% end %></li>
-              <% else %>
+          <% else %>
               <li class="nav-item active">
                   <a class="nav-link" href="/"><i class="fas fa-home"></i>Home<span class="sr-only">(current)</span></a>
               </li>
+              
+               <li><%= link_to "/home/about", class:"nav-link  active btn-block" do %>
+              <i class="fas fas fa-users">About</i>
+              <% end %></li>
+              
+               <li><%= link_to new_user_registration_path, class:"nav-link  active btn-block" do %>
+              <i class="fas fa-book-open">sign up</i>
+              <% end %></li>
+              
               <li class="nav-item active">
-                  <a class="nav-link" href="/about"><i class="fas fa-users"></i>About</a>
+                  <a class="nav-link" href="/users/sign_in"><i class="fas fa-sign-out-alt"></i>login</a>
               </li>
-              <li class="nav-item active">
-                  <a class="nav-link" href="users/sign_up"><i class="fas fa-book-open"></i>Sign_up</a>
-              </li>
-              <li class="nav-item active">
-                  <a class="nav-link" href="users/sign_in"><i class="fas fa-sign-out-alt"></i>login</a>
-              </li>
-              <% end %>
+          <% end %>
          </ul>
      </div>
 </nav>

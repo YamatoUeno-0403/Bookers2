@@ -1,6 +1,8 @@
-
+<%= form_with model:@book, local:true do |f| %>     
+<%= render 'shared/error_messages', model: f.object %>
+<% end %>
   <div class="container">  
-      <div class="row">     
+      <div class="row">
 
          <%= render 'shared/new_book' %> 
               
@@ -17,7 +19,7 @@
                        <% @books.each do |book| %>
                           <tbody>
                              <tr>
-                                 <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></td>
+                                 <td><%= attachment_image_tag  book.user,  :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></td>
                                  <td><%= link_to book.title, book_path(book.id) %></td>
                                  <td><%= book.body %></td>
                                  

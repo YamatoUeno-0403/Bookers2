@@ -1,5 +1,25 @@
 @import "bootstrap";
 
+.notice{
+    color: green;
+}
+.alert{
+    color: red;
+
+}
+
+/*----------registration_new.html----&---sessions.new.html------------*/
+
+.field1{
+    padding-top: 10px;
+    width: 8em;
+}
+.btncontainer{
+    padding-left: 150px;
+}
+
+
+/*--------------------application.html-----------------*/
 .navbar-brand{
     padding-left: 150px;
 }
@@ -10,6 +30,12 @@ footer{
     margin-top: 20px;
     text-align: center;
 }
+
+
+.about{
+    text-align: center;
+}
+
 
 .plete{
     width: 100%;

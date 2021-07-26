@@ -1,0 +1,36 @@
+
+
+<div class="container">  
+ <div class="row">
+
+<div class="col-lg-5">
+  <div class="mb-3">
+  <h2>Editing Book</h2>
+  <%= form_with model:@book, local:true do |f| %>
+  
+  </div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Title</label>
+  <%= f.text_field :title, class:"form-control"%>
+</div>
+
+
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Opinion</label>
+  <%= f.text_area :opinion,  class:"form-control" %>
+</div>
+<%= f.submit "Update Book",class:"btn btn-success" %>
+
+<% end %>
+<div class="link" >
+<%= link_to "Show" , book_path %> | <%= link_to "Back" , books_path %>
+</div>
+</div>
+
+
+
+</div>
+
+
+    
+</div>

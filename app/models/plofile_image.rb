@@ -1,0 +1,2 @@
+class PlofileImage < ApplicationRecord
+end
