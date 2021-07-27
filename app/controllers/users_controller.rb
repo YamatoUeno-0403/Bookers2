@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   
-  before_action :authenticate_user!
   
   def show
     @user = User.find(params[:id])
@@ -51,9 +50,6 @@ end
   end
   
     private
-  def book_params
-    params.require(:book).permit(:title, :body)
-  end
 
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)

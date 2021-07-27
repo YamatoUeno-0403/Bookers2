@@ -1,7 +1,6 @@
 class BooksController < ApplicationController
   
-  
-  before_action :authenticate_user!
+
   
   
     def index
@@ -15,11 +14,7 @@ class BooksController < ApplicationController
       @user = @book.user
     end
 
-    def update
-      @book = Book.find(params[:id])
-      @book.update(book_params)
-      redirect_to book_path
-    end
+
 
     
     def create
@@ -38,7 +33,18 @@ class BooksController < ApplicationController
         
   def edit
     @book = Book.find(params[:id])
+    
   end
+  
+    def update
+      @book = Book.find(params[:id])
+      if @book.update(book_params)
+        flash.now[:notice] = "You have updated book successfully."
+        redirect_to book_path
+      else
+        render "edit"
+      end
+    end
   
   
   def destroy
@@ -55,7 +61,5 @@ private
     params.require(:book).permit(:title, :body)
   end
   
-  def user_params
-    params.require(:user).permit(:name, :introduction)
-  end
+
 end

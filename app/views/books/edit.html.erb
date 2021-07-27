@@ -1,5 +1,7 @@
 
-
+<%= form_with model:@book, local:true do |f| %>     
+<%= render 'shared/error_messages', model: f.object %>
+<% end %>
 <div class="container">  
  <div class="row">
 
@@ -17,7 +19,7 @@
 
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Opinion</label>
-  <%= f.text_area :opinion,  class:"form-control" %>
+  <%= f.text_area :body,  class:"form-control" %>
 </div>
 <%= f.submit "Update Book",class:"btn btn-success" %>
 
