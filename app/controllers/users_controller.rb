@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  
+
   def show
     @user = User.find(params[:id])
     @books = Book.where(user_id: @user.id)
@@ -18,8 +18,7 @@ def create
     @book = Book.new(book_params)
     @book.user_id= current_user.id
   if @book.save
-    flash.now[:notice] = "Book was successfully created."
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@book.id),  notice: "Book was successfully created."
   else
     @books = Book.all
     render 'index'
@@ -28,25 +27,26 @@ end
     
   def edit
     @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to user_path(current_user)
+    end
   end
   
 
   
-    def update
-      @user = User.find(params[:id])
-      if @user.update(user_params)
-        flash.now[:notice] = "You have updated user successfully."
-        redirect_to user_path(@user.id)
-      else
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path(@user.id), notice: "You have updated user successfully."
+    else
       render "edit"
-      end
     end
+  end
   
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash.now[:notice] ="Signed out successfully."
-    redirect_to root_path
+    redirect_to root_path, notice: "Signed out successfully."
   end
   
     private
@@ -55,5 +55,4 @@ end
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
   
-
 end

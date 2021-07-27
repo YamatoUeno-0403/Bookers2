@@ -15,20 +15,13 @@ ActiveRecord::Schema.define(version: 2021_07_24_100115) do
   create_table "books", force: :cascade do |t|
     t.text "title"
     t.text "body"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "user_id"
     t.string "introduction"
   end
 
   create_table "plofile_images", force: :cascade do |t|
-    t.string "image_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "post_images", force: :cascade do |t|
     t.string "image_id"
     t.integer "user_id"
     t.datetime "created_at", null: false

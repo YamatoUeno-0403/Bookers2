@@ -2,36 +2,35 @@
 
 <div class="container">  
  <div class="row">
-
-<div class="col-lg-5">
-  <div class="mb-3">
-  <h2>User info</h2>
-  <%= form_with model:@user, local:true do |f| %>
-  <%= render 'shared/error_messages', model: f.object %>
-  </div>
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">name</label>
-  <%= f.text_field :name, class:"form-control"%>
-</div>
-<div class="mb-3">
-<lavel>image</lavel><br>
-<%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-</div>
-
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Introduction</label>
-  <%= f.text_area :introduction,  class:"form-control" %>
-</div>
-<div>
-<%= f.submit "Update User",class:"btn btn-secondary" %>
-</div>
-<% end %>
-</div>
-
-
-
-</div>
-
-
+   <div class="col-lg-5">
+     
+    <div class="mb-3">
+      <h2>User info</h2>
+    </div>
     
+      <%= form_with model:@user, local:true do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">name</label>
+          <%= f.text_field :name, class:"form-control"%>
+        </div>
+        
+        <div class="mb-3">
+          <lavel>image</lavel><br>
+          <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Introduction</label>
+          <%= f.text_area :introduction,  class:"form-control" %>
+        </div>
+        
+        <div>
+          <%= f.submit "Update User",class:"btn btn-secondary" %>
+        </div>
+        
+      <% end %>
+
+</div>
+</div>
 </div>
