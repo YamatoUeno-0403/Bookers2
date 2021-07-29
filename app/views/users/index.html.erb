@@ -1,10 +1,10 @@
 
- <div class="container">  
+ <div class="container px-5 px-sm-0">  
      <div class="row">
          
-        <%= render 'shared/new_book' %>
+        <%= render 'shared/new_book',user: current_user, book: @book %>
         
-        <div class="col-lg-8">
+        <div class="col-md-8 offset-md-1">
             <table class="table" >
                 <h1>Users</h1>
                     <thead>
@@ -17,8 +17,8 @@
                 <% @users.each do |user| %>
                     <tbody>
                           <tr>
-                             <td><%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></td>
-                             <td><%= user.name %></td>
+                             <td class="col-3"><%= attachment_image_tag user,:profile_image, size: "50x50" ,fallback: "no_image.jpg"%></td>
+                             <td class="col-6"><%= user.name %></td>
                              <td><%= link_to "Show", user_path(user.id) %></td>
                           </tr>
                     </tbody>
